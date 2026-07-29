@@ -1,5 +1,7 @@
 # JavaScript
 
+A personal repository for JavaScript projects and learning. This repo contains various JavaScript exercises, experiments, and projects to practice and improve my web development skills.
+
 ## Getting Started
 
 ### Installation
@@ -22,7 +24,4 @@ To start the development server, run:
 npm start
 ```
 
-This command launches **live-server** on port 8000, which provides:
-- Local development server for testing your JavaScript code
-- Automatic browser reload when you save changes
-- Easy access at `http://localhost:8000`
+This command launches **http-server** on port 8000 for testing your JavaScript code locally. Access it at `http://localhost:8000`
