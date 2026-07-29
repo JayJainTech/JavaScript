@@ -4,7 +4,7 @@
   "description": "",
   "main": "JavaScript.js",
   "scripts": {
-    "start": "live-server --port=8000",
+    "start": "http-server -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/JayJainTech/JavaScript#readme",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "http-server": "^14.1.1"
   }
 }
