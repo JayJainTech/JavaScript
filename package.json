@@ -4,7 +4,8 @@
   "description": "",
   "main": "JavaScript.js",
   "scripts": {
-    "start": "http-server -p 8000",
+    "dev": "nodemon --require ./.utils.js JavaScript.js",
+    "browser": "live-server --port=8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,9 @@
   },
   "homepage": "https://github.com/JayJainTech/JavaScript#readme",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.0",
+    "nodemon": "^3.1.14",
+    "prompt-sync": "^4.2.0"
   }
 }

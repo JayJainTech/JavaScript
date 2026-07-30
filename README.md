@@ -16,12 +16,32 @@ npm install
 
 The `node_modules` folder is not included in the repository (see `.gitignore`). Running `npm install` will recreate it based on `package-lock.json`.
 
-### npm start
+### npm run dev
 
-To start the development server, run:
+For development with **auto-reload on file changes**:
 
 ```bash
-npm start
+npm run dev
 ```
 
-This command launches **http-server** on port 8000 for testing your JavaScript code locally. Access it at `http://localhost:8000`
+This uses **nodemon** to automatically restart your Node.js script whenever you save changes. Perfect for iterative development in the WebStorm console.
+
+**Note on `prompt()`**: The `prompt()` function is built-in for browsers but doesn't exist in Node.js. This project uses [prompt-sync](https://www.npmjs.com/package/prompt-sync) to provide browser-like prompt functionality in Node.js. 
+
+To use `prompt()` in your scripts, add this line at the top:
+
+```javascript
+require('./.utils.js');
+```
+
+This loads `.utils.js` which sets up `prompt()` globally. Then you can use it like in a browser!
+
+### npm run browser
+
+For browser testing with **auto-reload on file changes**:
+
+```bash
+npm run browser
+```
+
+This launches **live-server** on port 8000 with automatic browser refresh whenever you save changes. Perfect for testing JavaScript in the browser.
