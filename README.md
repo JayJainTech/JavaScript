@@ -34,7 +34,14 @@ To use `prompt()` in your scripts, add this line at the top:
 require('./.utils.js');
 ```
 
-This loads `.utils.js` which sets up `prompt()` globally. Then you can use it like in a browser!
+This loads `.utils.js` which sets up `prompt()` globally. Then you can use it like in a browser to get user input:
+
+```javascript
+let name = prompt("What is your name?");
+console.log("Hello, " + name);
+```
+
+Great for interactive scripts and getting user input without external dependencies!
 
 ### npm run browser
 
