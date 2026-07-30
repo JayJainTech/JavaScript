@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
 .idea/
+.ai
 # Default ignored files
 /shelf/
 /workspace.xml
