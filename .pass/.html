@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #target-zone {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      border-radius: 0.6rem;
+      background: #f7f7f7;
+      transition: left 1s ease, top 1s ease;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="target-zone" aria-hidden="true"></div>
+
+  <script>
+    const correctPassword = "funtimecheating";
+    const targetZone = document.querySelector("#target-zone");
+    let zonePosition;
+
+    function moveTargetZone() {
+      const maxLeft = window.innerWidth - targetZone.offsetWidth;
+      const maxTop = window.innerHeight - targetZone.offsetHeight;
+      const movementRange = 500;
+
+      if (!zonePosition) {
+        zonePosition = {
+          left: Math.random() * Math.max(maxLeft, 0),
+          top: Math.random() * Math.max(maxTop, 0)
+        };
+      } else {
+        zonePosition.left = Math.min(
+          Math.max(zonePosition.left + (Math.random() * 2 - 1) * movementRange, 0),
+          Math.max(maxLeft, 0)
+        );
+        zonePosition.top = Math.min(
+          Math.max(zonePosition.top + (Math.random() * 2 - 1) * movementRange, 0),
+          Math.max(maxTop, 0)
+        );
+      }
+
+      targetZone.style.left = `${zonePosition.left}px`;
+      targetZone.style.top = `${zonePosition.top}px`;
+    }
+
+    moveTargetZone();
+    window.addEventListener("resize", () => {
+      moveTargetZone();
+    });
+    window.setInterval(moveTargetZone, 5000);
+
+    targetZone.addEventListener("click", () => {
+      const password = prompt("Enter password:");
+
+      if (password === correctPassword) {
+        document.body.innerHTML = `
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            Open YouTube
+          </a>
+        `;
+        document.title = "YouTube";
+      }
+    });
+  </script>
+</body>
+</html>
