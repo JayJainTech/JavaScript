@@ -21,14 +21,25 @@
       cursor: pointer;
     }
 
+    #password-input {
+      position: fixed;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
   </style>
 </head>
 <body>
   <div id="target-zone" aria-hidden="true"></div>
+  <input id="password-input" type="password" autocomplete="off" aria-label="Password" />
 
   <script>
-    const correctPassword = "funtimecheating";
-    const targetZone = document.querySelector("#target-zone");
+    const correctPassword = "havefuncheating";
+    let targetZone = document.querySelector("#target-zone");
+    const passwordInput = document.querySelector("#password-input");
     let zonePosition;
 
     function moveTargetZone() {
@@ -63,15 +74,23 @@
     window.setInterval(moveTargetZone, 5000);
 
     targetZone.addEventListener("click", () => {
-      const password = prompt("Enter password:");
+      passwordInput.value = "";
+      passwordInput.focus();
+    });
 
-      if (password === correctPassword) {
+    passwordInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        if (passwordInput.value === correctPassword) {
         document.body.innerHTML = `
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-            Open YouTube
+          <a id="target-zone" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="Open YouTube">
           </a>
         `;
+        targetZone = document.querySelector("#target-zone");
+        moveTargetZone();
         document.title = "YouTube";
+        } else {
+          passwordInput.value = "";
+        }
       }
     });
   </script>
